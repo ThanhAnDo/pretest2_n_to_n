@@ -12,8 +12,13 @@
 </head>
 <body>
 <h2>Welcome to Employee Management</h2>
+<p>
+    <a href="Insert.jsp">Insert New Employee</a>
+</p>
+<p>
+    <a href="Search.jsp">Search Employee</a>
+</p>
 
-<a href="Insert.jsp">Insert New Employee</a>
-<a href="Search.jsp">Search Employee</a>
+
 </body>
 </html>

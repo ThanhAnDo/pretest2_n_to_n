@@ -22,17 +22,26 @@ public class EmployeeBean implements EmployeeService {
 
   @Override
   public List<Employee> getAllEmployee() {
-    return null;
+    return entityManager.createQuery("select e from Employee e", Employee.class).getResultList();
   }
 
   @Override
-  public Employee getEmployeeById(String employeeId) {
-    return null;
+  public int getEmployeeById(String employeeId) {
+    Employee employee = null;
+    return entityManager.createQuery("select e from Employee e", Employee.class).getFirstResult();
   }
 
   @Override
   public boolean addEmployee(Employee employee) {
-    return false;
+    try {
+      entityManager.getTransaction().begin();
+      entityManager.persist(employee);
+      entityManager.getTransaction().commit();
+      return true;
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      return false;
+    }
   }
 
   @Override

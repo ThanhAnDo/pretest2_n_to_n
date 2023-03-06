@@ -8,7 +8,7 @@ import java.util.List;
 @Remote
 public interface EmployeeService {
     public List<Employee> getAllEmployee();
-    public Employee getEmployeeById(String employeeId);
+    public int getEmployeeById(String employeeId);
     public boolean addEmployee(Employee employee);
     public  boolean updateEmployee(Employee employee);
     public  boolean deleteEmployee(String employeeId);

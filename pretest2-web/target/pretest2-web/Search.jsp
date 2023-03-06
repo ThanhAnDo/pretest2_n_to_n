@@ -21,5 +21,10 @@
     <input type="submit" name="action" value="Search">
   </p>
 </form>
+<p>
+  Click
+  <a href="Insert.jsp">here</a>
+  to Insert new Employee
+</p>
 </body>
 </html>

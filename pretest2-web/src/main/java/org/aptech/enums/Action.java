@@ -1,7 +1,7 @@
 package org.aptech.enums;
 
 public enum Action {
-    Insert,
+    Create,
     List,
     Update,
     Delete,

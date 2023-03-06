@@ -2,24 +2,30 @@ package org.aptech.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "employee")
 public class Employee implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employeeId", columnDefinition = "varchar(10)")
     private String employeeId;
     @Column(name = "employeeName", columnDefinition = "varchar(50)")
     private String employeeName;
 
-    @ManyToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+//    @ManyToMany
 //    @JoinTable(name = "employee_company", joinColumns = {@JoinColumn(name = "employeeId")}, inverseJoinColumns = {@JoinColumn(name = "companyId")})
-    @PrimaryKeyJoinColumn
-    private Set<Company> companies = new HashSet<>();
+//
+//    private Set<Company> companies = new HashSet<>();
+//    @ManyToMany
+//    @JoinTable(name = "employee_company")
+//    public  Set<Company> companies;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<EmployeeCompany> companies = new ArrayList<>();
 
     public Employee() {
     }
@@ -40,14 +46,15 @@ public class Employee implements Serializable {
         this.employeeName = employeeName;
     }
 
-    @OneToMany(mappedBy = "employee")
-    private Collection<EmployeeCompany> employeeCompany;
+//    @OneToMany(mappedBy = "employee")
+//    private Collection<EmployeeCompany> employeeCompany;
+//
+//    public Collection<EmployeeCompany> getEmployeeCompany() {
+//        return employeeCompany;
+//    }
+//
+//    public void setEmployeeCompany(Collection<EmployeeCompany> employeeCompany) {
+//        this.employeeCompany = employeeCompany;
+//    }
 
-    public Collection<EmployeeCompany> getEmployeeCompany() {
-        return employeeCompany;
-    }
-
-    public void setEmployeeCompany(Collection<EmployeeCompany> employeeCompany) {
-        this.employeeCompany = employeeCompany;
-    }
 }
