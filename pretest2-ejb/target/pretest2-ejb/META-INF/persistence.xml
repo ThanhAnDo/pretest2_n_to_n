@@ -21,7 +21,9 @@
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
    <persistence-unit name="pretest2PersistenceUnit">
-
+      <class>org.aptech.entities.Employee</class>
+      <class>org.aptech.entities.Company</class>
+      <class>org.aptech.entities.EmployeeCompany</class>
       <properties>
          <!--The database schema is auto created on deployment and dropped before redeploy.
              Note: the following configuration does not drop the tables on undeploy. If you prefer this, use this

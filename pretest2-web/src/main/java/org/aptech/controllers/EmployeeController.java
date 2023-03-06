@@ -51,6 +51,8 @@ public class EmployeeController extends HttpServlet {
         company.setCompanyName(companyName);
 
         EmployeeCompany employeeCompany = new EmployeeCompany();
+        employeeCompany.setEmployee(employee);
+        employeeCompany.setCompany(company);
 
 
         return employee;
